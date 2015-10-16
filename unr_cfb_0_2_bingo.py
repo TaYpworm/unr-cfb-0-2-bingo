@@ -35,6 +35,10 @@ def convert_to_bingo(in_file, out_file, col):
 				query = col.find_one({'UniParc': data[1]})
 				if query:
 					write_gos(o, fmt, query['GO'])
+			elif data[1].startswith('UniRef50'):
+				query = col.find_one({'UniRef50': data[1]})
+				if query:
+					write_gos(o, fmt, query['GO'])
 			else:
 				query = col.find_one({'UniProtKB-ID': data[1]})
 				if query:
